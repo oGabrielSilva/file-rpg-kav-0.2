@@ -3,6 +3,10 @@ const btSaibaMais = document.getElementById('btSaibaMais')
 
 btSaibaMais.addEventListener('click', () => {
   const copy = document.getElementById('copy')
+  if(terminalContador % 2 == 0) {
+    alert('Err. Terminal in focus.')
+    return
+  }
   copy.focus()
 })
 //------------------------------
