@@ -21,11 +21,21 @@ enemysForest = [
   { enemy: 'Wood Elemental', lvl: 4, drop: 0 },
   { enemy: 'Assassin', lvl: 4, drop: 6 },
   { enemy: 'Fire Mage', lvl: 4, drop: 6 },
-  { enemy: 'Druid', lvl: 4, drop: 6 },
+  { enemy: 'Newbie Druid', lvl: 4, drop: 6 },
 
-  { enemy: 'Druid', lvl: 5, drop: 8 },
   { enemy: 'Water Elemental', lvl: 5, drop: 0 },
-  { enemy: 'Shaman', lvl: 5, drop: 9 },
-  { enemy: 'Templar Paladin', lvl: 5, drop: 10 },
-  { enemy: 'Old man Forest', lvl: 5, drop: 8 }
+  { enemy: 'Old man Forest', lvl: 5, drop: 8 },
+
+  { enemy: 'Druid', lvl: 6, drop: 8 },
+  { enemy: 'Shaman', lvl: 6, drop: 9 },
+  { enemy: 'Templar Paladin', lvl: 7, drop: 10 },
+
+]
+
+enemysCave = [
+  { enemy: 'Goblin', lvl: 1, drop: 2 },
+  { enemy: 'Spider', lvl: 1, drop: 0 },
+  { enemy: 'Wisp', lvl: 1, drop: 0 },
+  { enemy: 'Zombie', lvl: 1, drop: 3 },
+  { enemy: 'Worm', lvl: 1, drop: 0 },
 ]

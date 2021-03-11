@@ -27,7 +27,7 @@ const coin = document.getElementById('coin')
 
 //Terminal
 const terminal = document.getElementById('btTerminal')
-let events = 0
+
 let terminalSpawn = 'TERMINAL_ADM\n\n'
 let terminalContador = 1
 
@@ -46,3 +46,13 @@ terminal.addEventListener('click', () => {
 
 
 //-----------------------------
+
+
+//newEnemy
+const btNewEnemy = document.getElementById('newEnemy')
+
+//outs de dados
+const outEnemy = document.getElementById('outEnemy')
+const outEnemyLife = document.getElementById('outEnemyLife')
+const outEnemyF = document.getElementById('outEnemyF')
+const outEnemyD = document.getElementById('outEnemyD')
