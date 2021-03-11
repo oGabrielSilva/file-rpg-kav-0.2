@@ -1,26 +1,33 @@
 let enemyContador = 0
-let newo = 0
+let pos
+
 
 function checkForest() {
   let enemyLvl = Math.ceil(Math.random() * enemyContador)
 
-  if (enemyContador < 9) {
-    enemyContador++
-  } else if (enemyContador < 19) {
-
-    if (newo === 0) {
-      let pos = confirm('Ir para o próximo nível da Floresta?')
-      newo = 1
+  switch (enemyContador) {
+    case 9:
+      pos = confirm('Adentrar mais na Floresta?')
       if (!pos) {
         enemyContador = 1
         return
       }
-    }
-    enemyContador++
-  } else if (enemyContador < 24) {
-    enemyContador++
-  }
+      enemyContador++
+      break;
+    case 19:
+      pos = confirm('Adentrar mais na Floresta?')
+      if (!pos) {
+        enemyContador = 10
+        return
+      }
+      enemyContador++
+      break;
+    case 24:
+      enemyContador = 24
+      break;
+    default: enemyContador++
 
+  }
 
   console.log(enemyContador)
   let enemyType = enemysForest[enemyLvl].enemy
