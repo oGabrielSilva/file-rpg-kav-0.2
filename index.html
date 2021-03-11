@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/dice.css">
+  <link rel="stylesheet" href="public/css/systemEnemy.css">
+  <link rel="stylesheet" href="public/css/footer.css">
+  <link rel="shortcut icon" href="public/img/favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+  </style>
+  <title>RPG Mundo de Kav</title>
+</head>
+
+<body>
+  <nav>
+    <input type="button" id="btTerminal" value="Terminal">
+    <input type="button" id="btSaibaMais" value="Saiba Mais">
+  </nav>
+  <pre id="terminal"></pre>
+
+  <div>
+    <main>
+      <section id="dice">
+        <h2>Dice System</h2>
+        <input type="text" id="outDice" readonly placeholder="outDiceValue">
+        <p>
+          <input type="button" id="D100" value="D100">
+          <input type="button" id="D20" value="D20">
+        </p>
+        <p>
+          <input type="button" id="D15" value="D15">
+          <input type="button" id="D8" value="D8">
+        </p>
+        <p>
+          <input type="button" id="D6" value="D6">
+          <input type="button" id="D4" value="D4">
+        </p>
+        <input type="button" id="coin" value="Coin">
+      </section>
+
+      <section id="enemySystem">
+        <h2>
+          Enemy System
+        </h2>
+        <p>
+          <input type="text" id="outEnemy" placeholder="outEnemy" readonly>
+          <input type="text" id="outEnemyLife" placeholder="outEnemyLife" readonly>
+        </p>
+        <p>
+          <input type="text" id="outEnemyF" placeholder="outEnemyF" readonly>
+          <input type="text" id="outEnemyD" placeholder="outEnemyD" readonly>
+        </p>
+        <span>
+          <p>
+            <label>Floresta
+              <input type="checkbox" value="0" id="enemyForest">
+              <label>Caverna
+                <input type="checkbox" value="1" id="enemyCave">
+                <label>Estrada
+                  <input type="checkbox" value="2" id="enemyStreet">
+                  <label>Dungeon
+                    <input type="checkbox" value="3" id="enemyDungeon">
+                    <label>Boss
+                      <input type="checkbox" value="4" id="enemyBoss">
+          </p>
+        </span>
+        <input type="button" id="newEnemy" value="Out New Enemy">
+      </section>
+    </main>
+    <footer>
+      <p>
+        &copy; 2021 Gabriel H. da Silva - Todos os direitos reservados
+      </p>
+      <p>
+        Icons made by <a id="copy" href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="public/js/master.js"></script>
+  <script src="public/js/dice.js"></script>
+  <script src="public/js/enemySpawn.js"></script>
+</body>
+
+</html>
