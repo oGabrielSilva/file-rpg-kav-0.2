@@ -19,7 +19,7 @@
 <body>
   <nav>
     <input type="button" id="btTerminal" value="Terminal">
-    <input type="button" id="btSaibaMais" value="Saiba Mais">
+    <input type="button" id="btInput" value="< Input />">
   </nav>
   <pre id="terminal"></pre>
 
@@ -57,16 +57,21 @@
         </p>
         <span>
           <p>
-            <label>Floresta
+            <label for="enemyForest">Floresta
               <input type="checkbox" value="0" id="enemyForest">
-              <label>Caverna
-                <input type="checkbox" value="1" id="enemyCave">
-                <label>Estrada
-                  <input type="checkbox" value="2" id="enemyStreet">
-                  <label>Dungeon
-                    <input type="checkbox" value="3" id="enemyDungeon">
-                    <label>Boss
-                      <input type="checkbox" value="4" id="enemyBoss">
+            </label>
+            <label for="enemyCave">Caverna
+              <input type="checkbox" value="1" id="enemyCave">
+            </label>
+            <label for="enemyStreet">Estrada
+              <input type="checkbox" value="2" id="enemyStreet">
+            </label>
+            <label>Dungeon
+              <input type="checkbox" value="3" id="enemyDungeon">
+            </label>
+            <label>Mountain
+              <input type="checkbox" value="4" id="enemyMountain">
+            </label>
           </p>
         </span>
         <input type="button" id="newEnemy" value="Out New Enemy">

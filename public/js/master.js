@@ -1,13 +1,8 @@
 //Saiba Mais
-const btSaibaMais = document.getElementById('btSaibaMais')
+const btInput = document.getElementById('btInput')
 
-btSaibaMais.addEventListener('click', () => {
-  const copy = document.getElementById('copy')
-  if(terminalContador % 2 == 0) {
-    alert('Err. Terminal in focus.')
-    return
-  }
-  copy.focus()
+btInput.addEventListener('click', () => {
+  console.log('Err. System being repaired.')
 })
 //------------------------------
 
