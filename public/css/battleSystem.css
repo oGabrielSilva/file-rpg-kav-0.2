@@ -1,0 +1,51 @@
+#battleSystem {
+  margin-bottom: 3em;
+}
+
+#battleSystem h2 {
+  border-bottom: 3px double #ccc;
+  padding: .5em;
+}
+
+#battleSystem p input {
+  height: 3em;
+  width: 50vw;
+  margin: 1em 0 1em 0;
+  font-weight: bold;
+  outline: 0;
+  text-align: center;
+
+  border: 1px solid #ccc;
+  border-radius: .5em;
+
+}
+
+#battleSystem p {
+  color: #585858;
+  font-weight: bold;
+}
+
+#battle {
+  padding: 1em 3em;
+  border: none;
+  border-radius: .5em;
+
+}
+
+#selectedEnemy, #selectedPlay {
+  padding: .8em;
+
+}
+
+#outMov {
+  color: #40d482;
+  font-size: 12px;
+  height: 7em;
+  overflow: auto;
+  border: 1px solid grey;
+  border-radius: .5em;
+  text-align: left;
+  margin: 0 auto;
+  padding: .5em;
+  background: #1e2f4a;
+}

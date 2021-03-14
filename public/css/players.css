@@ -1,0 +1,11 @@
+#playerSystem {
+  margin-bottom: 3em;
+  color: #585858;
+  font-weight: bold;
+
+}
+
+#playerSystem h2 {
+  border-bottom: 3px double #ccc;
+  padding: .5em;
+}

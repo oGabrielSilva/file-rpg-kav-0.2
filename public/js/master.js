@@ -1,13 +1,17 @@
-//Saiba Mais
-const btSaibaMais = document.getElementById('btSaibaMais')
+//input display
+const btInput = document.getElementById('btInput')
+inputCounter = 0
+btInput.addEventListener('click', () => {
 
-btSaibaMais.addEventListener('click', () => {
-  const copy = document.getElementById('copy')
-  if(terminalContador % 2 == 0) {
-    alert('Err. Terminal in focus.')
-    return
-  }
-  copy.focus()
+    if (inputCounter % 2 == 0) {
+            document.getElementById('inputTerminal').style.display = 'flex'
+            inputCounter++
+    } else {
+            document.getElementById('inputTerminal').style.display = 'none'
+            inputCounter++
+    }
+
+
 })
 //------------------------------
 
@@ -56,3 +60,25 @@ const outEnemy = document.getElementById('outEnemy')
 const outEnemyLife = document.getElementById('outEnemyLife')
 const outEnemyF = document.getElementById('outEnemyF')
 const outEnemyD = document.getElementById('outEnemyD')
+
+
+//playerSystem
+const addNewPlayer = document.getElementById('addNewPlayer')
+const revisePlayer = document.getElementById('revisePlayer')
+const outPlayers = document.getElementById('outPlayers')
+
+//battleSystem
+const battleMob = document.getElementById('battleMob')
+const createMob = document.getElementById('createMob')
+const salveLastMob = document.getElementById('salveLastMob')
+
+const playerBattle = document.getElementById('playerBattle')
+const selectedPlay = document.getElementById('selectedPlay')
+
+const enemyBattle = document.getElementById('enemyBattle')
+const selectedEnemy = document.getElementById('selectedEnemy')
+
+const vs1vs1 = document.getElementById('vs1vs1')
+const vs1vs2 = document.getElementById('vs1vs2')
+const battle = document.getElementById('battle')
+const outMov = document.getElementById('outMov')
