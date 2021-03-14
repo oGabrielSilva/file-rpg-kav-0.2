@@ -6,23 +6,81 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/terminal.css">
+  <link rel="stylesheet" href="public/css/inputTerminal.css">
   <link rel="stylesheet" href="public/css/dice.css">
   <link rel="stylesheet" href="public/css/systemEnemy.css">
+  <link rel="stylesheet" href="public/css/players.css">
+  <link rel="stylesheet" href="public/css/battleSystem.css">
   <link rel="stylesheet" href="public/css/footer.css">
   <link rel="shortcut icon" href="public/img/favicon.svg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
   </style>
   <title>RPG Mundo de Kav</title>
 </head>
 
 <body>
   <nav>
-    <input type="button" id="btTerminal" value="Terminal">
-    <input type="button" id="btInput" value="< Input />">
+    <input type="button" id="btTerminal" value=" Terminal " >
+    <input type="button" id="btInput" value=" < Input /> " >
   </nav>
-  <pre id="terminal"></pre>
 
+  <div id="inputTerminal">
+    <!--
+        Serve para salvar mobs do spawn;
+        Adicionar players
+        Criar mobs
+    -->
+    <div>
+        <span>
+            <pre id="players"></pre>
+
+            Player Name:
+            <p>
+                <input type="text" id="inNamePlayer" placeholder="Ex: Silver">
+            </p>
+            Player Life:
+            <p>
+                <input type="number" id="inLifePlayer" placeholder="Ex: 30">
+            </p>
+            Player Force:
+            <p>
+                <input type="number" id="inForcePlayer" placeholder="Ex: 15">
+            </p>
+            Player Defense
+            <p>
+                <input type="number" id="inDefensePlayer" placeholder="Ex: 16">
+            </p>
+            <input id="addNewPlayer" value="Add Player" type="button">
+            <input id="revisePlayer" value="Revise Player" type="button">
+        </span>
+        <span>
+            <pre id="mobsCreated"></pre>
+            Enemy Name:
+            <p>
+                <input type="text" id="inNameMob" placeholder="Ex: Silver">
+            </p>
+            Enemy Life:
+            <p>
+                <input type="number" id="inLifeMob" placeholder="Ex: 30">
+            </p>
+            Enemy Force:
+            <p>
+                <input type="number" id="inForceMob" placeholder="Ex: 15">
+            </p>
+            Enemy Defense
+            <p>
+                <input type="number" id="inDefenseMob" placeholder="Ex: 16">
+            </p>
+            <input type="button" value="Create Mob" id="createMob">
+            <input type="button" id="salveLastMob" value="Add Last Mob">
+        </span>
+        <footer></footer>
+    </div>
+  </div>
+  <pre id="terminal"></pre>
   <div>
     <main>
       <section id="dice">
@@ -60,22 +118,55 @@
             <label for="enemyForest">Floresta
               <input type="checkbox" value="0" id="enemyForest">
             </label>
+          </p>
+          <p>
             <label for="enemyCave">Caverna
               <input type="checkbox" value="1" id="enemyCave">
             </label>
+          </p>
+          <p>
             <label for="enemyStreet">Estrada
               <input type="checkbox" value="2" id="enemyStreet">
             </label>
+          </p>
+          <p>
             <label>Dungeon
               <input type="checkbox" value="3" id="enemyDungeon">
-            </label>
-            <label>Mountain
-              <input type="checkbox" value="4" id="enemyMountain">
             </label>
           </p>
         </span>
         <input type="button" id="newEnemy" value="Out New Enemy">
+        <input type="button" id="battleMob" value="Battle Enemy">
+
       </section>
+
+      <section id="playerSystem">
+        <h2>Player System</h2>
+        <pre id="outPlayers"></pre>
+      </section>
+
+      <section id="battleSystem">
+        <h2>Add for Battle System</h2>
+        <p>
+          <input type="number" id="playerBattle" placeholder="Player id">
+          <input type="button" id="selectedPlay" value="Send">
+        </p>
+
+        <p>
+          <input type="number" id="enemyBattle" placeholder="Enemy id">
+          <input type="button" id="selectedEnemy" value="Send">
+        </p>
+        <h2>Battle System</h2>
+        <pre id="outMov"></pre>
+
+        <p><input style="color: #585858" type="text" id="vs1vs1" readonly placeholder="Player"></p>
+        <p>X</p>
+        <p><input style="color: #585858" type="text" id="vs1vs2" readonly placeholder="Mob"></p>
+
+        <input type="button" value="Battle" id="battle">
+
+      </section>
+
     </main>
     <footer>
       <p>
@@ -92,6 +183,11 @@
   <script src="public/js/dice.js"></script>
   <script src="public/js/enemySpawn.js"></script>
   <script src="public/js/createNewEnemy.js"></script>
+  <script src="public/js/playerSystem.js"></script>
+  <script src="public/js/battleSystem.js"></script>
 </body>
 
 </html>
+
+
+<!-- 1034 linhas até agora -->

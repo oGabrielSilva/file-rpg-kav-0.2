@@ -148,10 +148,6 @@ function checkDungeon() {
 
 }
 
-function checkMountain() {
-  alert('Err. System being repaired')
-}
-
 btNewEnemy.addEventListener('click', () => {
   let check0 = document.getElementById('enemyForest')
   let check1 = document.getElementById('enemyCave')
@@ -166,7 +162,7 @@ btNewEnemy.addEventListener('click', () => {
     return
 
   } else {
-    
+
       if (check0.checked) {
 
         checkForest()
@@ -183,9 +179,6 @@ btNewEnemy.addEventListener('click', () => {
 
         checkDungeon()
       }
-      if (check4.checked) {
-
-        checkMountain()
-      }
     }
+
 })
