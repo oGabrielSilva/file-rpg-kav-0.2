@@ -55,3 +55,9 @@ nav input {
 nav input:hover {
   cursor: pointer;
 }
+
+.fig img{
+  height: 9vh;
+
+
+}
