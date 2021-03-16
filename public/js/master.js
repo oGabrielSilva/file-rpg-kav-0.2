@@ -84,6 +84,7 @@ const cureAll = document.getElementById('cureAll')
 
 const enemyBattle = document.getElementById('enemyBattle')
 const selectedEnemy = document.getElementById('selectedEnemy')
+const cureMob = document.getElementById('cureMob')
 
 const vs1vs1 = document.getElementById('vs1vs1')
 const vs1vs2 = document.getElementById('vs1vs2')

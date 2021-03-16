@@ -72,7 +72,7 @@ function cureAllPlayers() {
   let healAll = Number(prompt('How many percent healing?'))
 
   if (!healAll) {
-    alert('Enter percentage correctly')
+    alert('Enter percentage.')
     return
   }
 
@@ -87,6 +87,34 @@ function cureAllPlayers() {
     if (players[i].life > players[i].lifeMax) {
       players[i].life = players[i].lifeMax
       alert(`${players[i].name} full life.`)
+    }
+  }
+}
+
+function cureAllMob() {
+  if (enemysCreate.length <= 0) {
+    alert('No mobs registered.')
+    return
+  }
+
+  let healAll = Number(prompt('How many percent healing?'))
+
+  if (!healAll) {
+    alert('Enter percentage.')
+    return
+  }
+
+  let healAllValue
+
+  for (var i = 0; i < enemysCreate.length; i++) {
+    healAllValue = Math.ceil((healAll / 100) * enemysCreate[i].lifeMax)
+    enemysCreate[i].life = enemysCreate[i].life + healAllValue
+
+    alert(`${players[i].name} healing ${healAllValue}`)
+
+    if (enemysCreate[i].life > enemysCreate[i].lifeMax) {
+      enemysCreate[i].life = players[i].lifeMax
+      alert(`${enemysCreate[i].name} full life.`)
     }
   }
 }
@@ -125,29 +153,16 @@ createMob.addEventListener('click', () => {
   let lifeMob = Number(inLifeMob.value)
   let forceMob = Number(inForceMob.value)
   let defenseMob = Number(inDefenseMob.value)
+
   lifeMobs.push(lifeMob)
+
   if (nameMob == '' || lifeMob == '' || forceMob == '' || defenseMob == '') {
     alert('Informe os dados corretamente.')
     inNameMob.focus()
     return;
   }
 
-salveLastMob.addEventListener('click', () => {
-    let eneS = outEnemy.value
-    if (eneS == '') {
-      alert('Err.')
-      return
-    }
-
-    let eneSF = Number(outEnemyF.value)
-    let eneSL = Number(outEnemyLife.value)
-    let eneSD = Number(outEnemyD.value)
-
-    enemysCreate.push({ name: eneS, life: eneSL, force: eneSF, defense: eneSD })
-    listEnemys()
-  })
-
-  enemysCreate.push({ name: nameMob, life: lifeMob, force: forceMob, defense: defenseMob })
+  enemysCreate.push({ name: nameMob, lifeMax: lifeMob, life: lifeMob, force: forceMob, defense: defenseMob })
   alert('Enemy add.')
   inNameMob.value = ''
   inLifeMob.value = ''
@@ -158,11 +173,27 @@ salveLastMob.addEventListener('click', () => {
   listEnemys()
 })
 
+salveLastMob.addEventListener('click', () => {
+  let eneS = outEnemy.value
+  if (eneS == '') {
+    alert('Err.')
+    return
+  }
+
+  let eneSF = Number(outEnemyF.value)
+  let eneSL = Number(outEnemyLife.value)
+  let eneSD = Number(outEnemyD.value)
+
+  enemysCreate.push({ name: eneS, lifeMax: eneSL, life: eneSL, force: eneSF, defense: eneSD })
+  listEnemys()
+
+})
+
 selectedPlay.addEventListener('click', () => {
   if (players.length == 1) {
     playBattle.push(players[0])
     vs1vs1.value = playBattle[0].name
-    document.getElementById('copy').focus()
+    vs1vs1.focus()
     return
   }
 
@@ -183,7 +214,7 @@ selectedPlay.addEventListener('click', () => {
   for (i = 0; i < playBattle.length; i++) {
       if (players[play] == playBattle[i]) {
         vs1vs1.value = playBattle[play].name
-        document.getElementById('copy').focus()
+        vs1vs1.focus()
         return
       }
   }
@@ -203,7 +234,7 @@ selectedEnemy.addEventListener('click', () => {
 
   if (enemysForBattle.length > 0) {
     alert('Err. MOB in battle.')
-    document.getElementById('copy').focus()
+    battle.focus()
     return
   }
 
@@ -248,9 +279,9 @@ battle.addEventListener('click', () => {
     if (dam <= 0) {
       dam = 1
     }
-    console.log(`Life: ${enL - dam}`)
+
     if ((enL - dam) <= 0) {
-      enemysForBattle[0].life = lifeMobs[enemyID]
+
       terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name} causando ${dam} de dano. ${enemysForBattle[0].name} morreu. \n${terminalBattle}`
       enemysForBattle.shift()
       enemyBattle.value = ``
@@ -271,7 +302,7 @@ battle.addEventListener('click', () => {
     if (dam <= 0) {
       dam = 1
     }
-    console.log(`Life: ${plL - dam}`)
+
     if ((plL - dam) <= 0) {
       terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name} causando ${dam} de dano. ${playBattle[playerBattle.value].name} morreu. \nCure-o para voltar ao campo de batalha.\n \n${terminalBattle}`
       playerBattle.value = ``
@@ -290,3 +321,5 @@ battle.addEventListener('click', () => {
 cure.addEventListener('click', curePlayer)
 
 cureAll.addEventListener('click', cureAllPlayers)
+
+cureMob.addEventListener('click', cureAllMob)
