@@ -53,8 +53,10 @@
             <p>
                 <input type="number" id="inDefensePlayer" placeholder="Ex: 16">
             </p>
-            <input id="addNewPlayer" value="Add Player" type="button">
-            <input id="revisePlayer" value="Revise Player" type="button">
+            <input class="button" id="addNewPlayer" value="Add player" type="button">
+            <input class="button" id="revisePlayer" value="Revise player" type="button">
+            <input class="button" id="cure" value="Heal player" type="button">
+            <input class="button" id="cureAll" value="Heal all players" type="button">
         </span>
         <span>
             <pre id="mobsCreated"></pre>
@@ -74,8 +76,9 @@
             <p>
                 <input type="number" id="inDefenseMob" placeholder="Ex: 16">
             </p>
-            <input type="button" value="Create Mob" id="createMob">
-            <input type="button" id="salveLastMob" value="Add Last Mob">
+            <input class="button" type="button" value="Create mob" id="createMob">
+            <input class="button" type="button" id="salveLastMob" value="Add last mob">
+            <input class="button" type="button" id="cureMob" value="Heal mob">
         </span>
         <footer></footer>
     </div>
@@ -84,8 +87,8 @@
   <div>
     <main>
       <section id="dice">
-        <h2>Dice System</h2>
-        <input type="text" id="outDice" readonly placeholder="outDiceValue">
+        <h2>Dice system</h2>
+        <input type="text" id="outDice" readonly placeholder="Dice">
         <p>
           <input type="button" id="D100" value="D100">
           <input type="button" id="D20" value="D20">
@@ -106,47 +109,47 @@
           Enemy System
         </h2>
         <p>
-          <input type="text" id="outEnemy" placeholder="outEnemy" readonly>
-          <input type="text" id="outEnemyLife" placeholder="outEnemyLife" readonly>
+          <input type="text" id="outEnemy" placeholder="Enemy" readonly>
+          <input type="text" id="outEnemyLife" placeholder="Enemy's life" readonly>
         </p>
         <p>
-          <input type="text" id="outEnemyF" placeholder="outEnemyF" readonly>
-          <input type="text" id="outEnemyD" placeholder="outEnemyD" readonly>
+          <input type="text" id="outEnemyF" placeholder="Enemy's strength" readonly>
+          <input type="text" id="outEnemyD" placeholder="Enemy's defense" readonly>
         </p>
         <span>
           <p>
-            <label for="enemyForest">Floresta
+            <label for="enemyForest">< Forest >
               <input type="checkbox" value="0" id="enemyForest">
             </label>
           </p>
           <p>
-            <label for="enemyCave">Caverna
+            <label for="enemyCave">< Cave >
               <input type="checkbox" value="1" id="enemyCave">
             </label>
           </p>
           <p>
-            <label for="enemyStreet">Estrada
+            <label for="enemyStreet">< Path >
               <input type="checkbox" value="2" id="enemyStreet">
             </label>
           </p>
           <p>
-            <label>Dungeon
+            <label>< Dungeon >
               <input type="checkbox" value="3" id="enemyDungeon">
             </label>
           </p>
         </span>
-        <input type="button" id="newEnemy" value="Out New Enemy">
-        <input type="button" id="battleMob" value="Battle Enemy">
+        <input type="button" id="newEnemy" value="Call new Enemy">
+        <input type="button" id="battleMob" value="Battle with him">
 
       </section>
 
       <section id="playerSystem">
-        <h2>Player System</h2>
+        <h2>Player system</h2>
         <pre id="outPlayers"></pre>
       </section>
 
       <section id="battleSystem">
-        <h2>Add for Battle System</h2>
+        <h2>Battle call system</h2>
         <p>
           <input type="number" id="playerBattle" placeholder="Player id">
           <input type="button" id="selectedPlay" value="Send">
@@ -156,7 +159,7 @@
           <input type="number" id="enemyBattle" placeholder="Enemy id">
           <input type="button" id="selectedEnemy" value="Send">
         </p>
-        <h2>Battle System</h2>
+        <h2>Battle system</h2>
         <pre id="outMov"></pre>
 
         <p><input style="color: #585858" type="text" id="vs1vs1" readonly placeholder="Player"></p>

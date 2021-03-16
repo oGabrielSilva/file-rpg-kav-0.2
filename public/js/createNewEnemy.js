@@ -156,29 +156,28 @@ btNewEnemy.addEventListener('click', () => {
   let check4 = document.getElementById('enemyMountain')
 
 
-  if (!check0.checked && !check1.checked && !check2.checked && !check3.checked && !check4.checked) {
-    check0.focus()
-    alert('Nenhum habitat selecionado.')
+  if (check0.checked) {
+
+    checkForest()
     return
+  }
+  if (check1.checked) {
 
-  } else {
+    checkCave()
+    return
+  }
+  if (check2.checked) {
 
-      if (check0.checked) {
+    checkStreet()
+    return
+  }
+  if (check3.checked) {
 
-        checkForest()
-      }
-      if (check1.checked) {
+    checkDungeon()
+    return
+  }
 
-        checkCave()
-      }
-      if (check2.checked) {
-
-        checkStreet()
-      }
-      if (check3.checked) {
-
-        checkDungeon()
-      }
-    }
+  check0.focus()
+  alert('Nenhum habitat selecionado.')
 
 })

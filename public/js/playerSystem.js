@@ -21,7 +21,7 @@ addNewPlayer.addEventListener('click', () => {
     return
   }
 
-  players.push({ name: playerName, life: playerLife, force: playerForce, defense: playerDefense })
+  players.push({ name: playerName, lifeMax: playerLife, life: playerLife, force: playerForce, defense: playerDefense })
   alert('Player add.')
   inPlayerName.value = ''
   inPlayerForce.value = ''

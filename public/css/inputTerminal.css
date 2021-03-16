@@ -37,6 +37,6 @@
     border-radius: .5em;
 }
 
-#addNewPlayer, #createMob, #salveLastMob, #revisePlayer:hover {
+.button:hover {
   cursor: pointer;
 }

@@ -68,12 +68,19 @@ const revisePlayer = document.getElementById('revisePlayer')
 const outPlayers = document.getElementById('outPlayers')
 
 //battleSystem
+playBattle = []
+enemysCreate = []
+lifeMobs = []
+enemysForBattle = []
+
 const battleMob = document.getElementById('battleMob')
 const createMob = document.getElementById('createMob')
 const salveLastMob = document.getElementById('salveLastMob')
 
 const playerBattle = document.getElementById('playerBattle')
 const selectedPlay = document.getElementById('selectedPlay')
+const cure = document.getElementById('cure')
+const cureAll = document.getElementById('cureAll')
 
 const enemyBattle = document.getElementById('enemyBattle')
 const selectedEnemy = document.getElementById('selectedEnemy')

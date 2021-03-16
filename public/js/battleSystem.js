@@ -1,57 +1,12 @@
-playBattle = []
-enemysCreate = []
-enemysForBattle = []
 let terminalBattle = ``
 let listEnemy = ``
 let coinBattle = 1
 let dam
+let enemyID
 
 function callTerminal() {
   outMov.textContent = terminalBattle
 }
-
-salveLastMob.addEventListener('click', () => {
-  let eneS = outEnemy.value
-  if (eneS == '') {
-    alert('Err.')
-    return
-  }
-
-  let eneSF = Number(outEnemyF.value)
-  let eneSL = Number(outEnemyLife.value)
-  let eneSD = Number(outEnemyD.value)
-
-  enemysCreate.push({ name: eneS, life: eneSL, force: eneSF, defense: eneSD })
-  listEnemys()
-})
-
-createMob.addEventListener('click', () => {
-  const inNameMob = document.getElementById('inNameMob')
-  const inLifeMob = document.getElementById('inLifeMob')
-  const inForceMob = document.getElementById('inForceMob')
-  const inDefenseMob = document.getElementById('inDefenseMob')
-
-  let nameMob = inNameMob.value
-  let lifeMob = Number(inLifeMob.value)
-  let forceMob = Number(inForceMob.value)
-  let defenseMob = Number(inDefenseMob.value)
-
-  if (nameMob == '' || lifeMob == '' || forceMob == '' || defenseMob == '') {
-    alert('Informe os dados corretamente.')
-    inNameMob.focus()
-    return;
-  }
-
-  enemysCreate.push({ name: nameMob, life: lifeMob, force: forceMob, defense: defenseMob })
-  alert('Enemy add.')
-  inNameMob.value = ''
-  inLifeMob.value = ''
-  inForceMob.value = ''
-  inDefenseMob.value = ''
-  inNameMob.focus()
-
-  listEnemys()
-})
 
 function listEnemys() {
   listEnemy = ``
@@ -60,6 +15,80 @@ function listEnemys() {
   }
 
   document.getElementById('mobsCreated').textContent = listEnemy
+}
+
+function curePlayer() {
+  if (players.length <= 0) {
+    alert('No players registered.')
+    return
+  }
+
+  let playersReg = ``
+
+  for (var i = 0; i < players.length; i++) {
+    playersReg += `\n${players[i].name}`
+  }
+
+  let playHeal = prompt(`Which player should be healed?${playersReg}`)
+
+  if (!playHeal) {
+    return
+  }
+
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].name == playHeal) {
+      playHeal = i
+      break
+    }
+  }
+
+  let heal = Number(prompt('How many percent healing?'))
+
+  if (isNaN(heal) || heal == ``) {
+    alert('Report the cure correctly.')
+    return
+  }
+
+  heal = Math.ceil((heal / 100) * players[playHeal].lifeMax)
+
+  players[playHeal].life = players[playHeal].life + heal
+
+  if (players[playHeal].life > players[playHeal].lifeMax) {
+    players[playHeal].life = players[playHeal].lifeMax
+    alert(`${players[playHeal].name} full life.`)
+    return
+  }
+
+  alert(`${players[playHeal].name} healing ${heal} life.`)
+  return
+}
+
+function cureAllPlayers() {
+  if (players.length <= 0) {
+    alert('No players registered.')
+    return
+  }
+
+  let healAll = Number(prompt('How many percent healing?'))
+
+  if (!healAll) {
+    alert('Enter percentage correctly')
+    return
+  }
+
+  let healAllValue
+
+  for (var i = 0; i < players.length; i++) {
+    healAllValue = Math.ceil((healAll / 100) * players[i].lifeMax)
+    players[i].life = players[i].life + healAllValue
+
+    alert(`${players[i].name} healing ${healAllValue}`)
+
+    if (players[i].life > players[i].lifeMax) {
+      players[i].life = players[i].lifeMax
+      alert(`${players[i].name} full life.`)
+    }
+  }
 }
 
 battleMob.addEventListener('click', () => {
@@ -86,6 +115,48 @@ battleMob.addEventListener('click', () => {
   document.getElementById('copy').focus()
 })
 
+createMob.addEventListener('click', () => {
+  const inNameMob = document.getElementById('inNameMob')
+  const inLifeMob = document.getElementById('inLifeMob')
+  const inForceMob = document.getElementById('inForceMob')
+  const inDefenseMob = document.getElementById('inDefenseMob')
+
+  let nameMob = inNameMob.value
+  let lifeMob = Number(inLifeMob.value)
+  let forceMob = Number(inForceMob.value)
+  let defenseMob = Number(inDefenseMob.value)
+  lifeMobs.push(lifeMob)
+  if (nameMob == '' || lifeMob == '' || forceMob == '' || defenseMob == '') {
+    alert('Informe os dados corretamente.')
+    inNameMob.focus()
+    return;
+  }
+
+salveLastMob.addEventListener('click', () => {
+    let eneS = outEnemy.value
+    if (eneS == '') {
+      alert('Err.')
+      return
+    }
+
+    let eneSF = Number(outEnemyF.value)
+    let eneSL = Number(outEnemyLife.value)
+    let eneSD = Number(outEnemyD.value)
+
+    enemysCreate.push({ name: eneS, life: eneSL, force: eneSF, defense: eneSD })
+    listEnemys()
+  })
+
+  enemysCreate.push({ name: nameMob, life: lifeMob, force: forceMob, defense: defenseMob })
+  alert('Enemy add.')
+  inNameMob.value = ''
+  inLifeMob.value = ''
+  inForceMob.value = ''
+  inDefenseMob.value = ''
+  inNameMob.focus()
+
+  listEnemys()
+})
 
 selectedPlay.addEventListener('click', () => {
   if (players.length == 1) {
@@ -123,7 +194,7 @@ selectedPlay.addEventListener('click', () => {
 })
 
 selectedEnemy.addEventListener('click', () => {
-  let enemyID = enemyBattle.value
+  enemyID = enemyBattle.value
 
   if (enemysCreate.length <= 0) {
     alert('Err. MOB empty.')
@@ -141,20 +212,24 @@ selectedEnemy.addEventListener('click', () => {
     return
   }
 
+  enemyID = Number(enemyBattle.value)
+
   enemysForBattle.push(enemysCreate[enemyID])
   vs1vs2.value = `${enemysForBattle[0].name}`
   document.getElementById('copy').focus()
+  return
 })
-
 
 battle.addEventListener('click', () => {
   if (vs1vs1.value == '' || vs1vs2.value == '') {
     terminalBattle = `Não há combatentes suficientes.\n${terminalBattle}`
     callTerminal()
+    enemyForest.focus()
     return
   }
 
   coinBattle++
+
   // players
   let plP = playerBattle.value
   let plL = playBattle[playerBattle.value].life
@@ -173,12 +248,15 @@ battle.addEventListener('click', () => {
     if (dam <= 0) {
       dam = 1
     }
+    console.log(`Life: ${enL - dam}`)
     if ((enL - dam) <= 0) {
+      enemysForBattle[0].life = lifeMobs[enemyID]
       terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name} causando ${dam} de dano. ${enemysForBattle[0].name} morreu. \n${terminalBattle}`
       enemysForBattle.shift()
       enemyBattle.value = ``
       vs1vs2.value = ``
       callTerminal()
+
       return
     }
     enemysForBattle[0].life = enL - dam
@@ -193,9 +271,9 @@ battle.addEventListener('click', () => {
     if (dam <= 0) {
       dam = 1
     }
-
+    console.log(`Life: ${plL - dam}`)
     if ((plL - dam) <= 0) {
-      terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name} causando ${dam} de dano. ${playBattle[playerBattle.value].name} morreu. \n${terminalBattle}`
+      terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name} causando ${dam} de dano. ${playBattle[playerBattle.value].name} morreu. \nCure-o para voltar ao campo de batalha.\n \n${terminalBattle}`
       playerBattle.value = ``
       vs1vs1.value = ``
       callTerminal()
@@ -208,3 +286,7 @@ battle.addEventListener('click', () => {
     return
   }
 })
+
+cure.addEventListener('click', curePlayer)
+
+cureAll.addEventListener('click', cureAllPlayers)
