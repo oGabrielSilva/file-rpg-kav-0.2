@@ -112,7 +112,7 @@ battleMob.addEventListener('click', () => {
   enemysForBattle.push({ name: e, life: eL, force: eF, defense: eD })
 
   vs1vs2.value = `${enemysForBattle[enemysForBattle.length - 1].name}`
-  document.getElementById('copy').focus()
+  vs1vs1.focus()
 })
 
 createMob.addEventListener('click', () => {
@@ -190,7 +190,7 @@ selectedPlay.addEventListener('click', () => {
 
   playBattle.push(players[play])
   vs1vs1.value = playBattle[playBattle.length - 1].name
-  document.getElementById('copy').focus()
+  vs1vs1.focus()
 })
 
 selectedEnemy.addEventListener('click', () => {
@@ -216,7 +216,7 @@ selectedEnemy.addEventListener('click', () => {
 
   enemysForBattle.push(enemysCreate[enemyID])
   vs1vs2.value = `${enemysForBattle[0].name}`
-  document.getElementById('copy').focus()
+  vs1vs1.focus()
   return
 })
 
