@@ -4,6 +4,35 @@ let coinBattle = 1
 let dam
 let enemyID
 
+function lvlUp() {
+  if (playBattle[playerBattle.value].exp >= playBattle[playerBattle.value].expUP) {
+    playBattle[playerBattle.value].expUP = Math.ceil(((125 / 100) * playBattle[playerBattle.value].expUP) + playBattle[playerBattle.value].expUP)
+
+    alert('Lvl Up.')
+
+    playBattle[playerBattle.value].lvl++
+
+    playBattle[playerBattle.value].lifeMax = Math.ceil(((playBattle[playerBattle.value].lifeMax / 100) * 25) + playBattle[playerBattle.value].lifeMax)
+    playBattle[playerBattle.value].life = playBattle[playerBattle.value].lifeMax
+    playBattle[playerBattle.value].force += Math.ceil(Math.random() * 3)
+    playBattle[playerBattle.value].defense += Math.ceil(Math.random() * 4)
+
+    playersAdd = ``
+
+    for (var i = 0; i < players.length; i++) {
+      playersAdd += `
+    PLAYER_ID: ${playerBattle.value}
+    Name: ${players[playerBattle.value].name}
+    Life: ${players[playerBattle.value].life}
+    Force: ${players[playerBattle.value].force}
+    Defense: ${players[playerBattle.value].defense}
+      \n`
+
+    }
+    outPlayers.textContent = playersAdd
+  }
+}
+
 function callTerminal() {
   outMov.textContent = terminalBattle
 }
@@ -252,6 +281,7 @@ selectedEnemy.addEventListener('click', () => {
 })
 
 battle.addEventListener('click', () => {
+
   if (vs1vs1.value == '' || vs1vs2.value == '') {
     terminalBattle = `Não há combatentes suficientes.\n${terminalBattle}`
     callTerminal()
@@ -259,10 +289,18 @@ battle.addEventListener('click', () => {
     return
   }
 
+  if (playerBattle.value == ``) {
+    alert('Player ID disconnected.')
+    playerBattle.focus()
+    return
+  }
+
   coinBattle++
 
+
   // players
-  let plP = playerBattle.value
+
+  let plP = Number(playerBattle.value)
   let plL = playBattle[playerBattle.value].life
   let plD = playBattle[playerBattle.value].defense
   let plF = playBattle[playerBattle.value].force
@@ -282,16 +320,23 @@ battle.addEventListener('click', () => {
 
     if ((enL - dam) <= 0) {
 
-      terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name} causando ${dam} de dano. ${enemysForBattle[0].name} morreu. \n${terminalBattle}`
+      terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name}.\n${terminalBattle}`
+      terminalBattle = `${dam} de dano.\n${terminalBattle}.`
+      terminalBattle = `${enemysForBattle[0].name} morreu. ${enemysForBattle[0].force + enemysForBattle[0].defense} exp. \n${terminalBattle}`
+
+      let expUser = enemysForBattle[0].force + enemysForBattle[0].defense
+      playBattle[playerBattle.value].exp += expUser
       enemysForBattle.shift()
       enemyBattle.value = ``
       vs1vs2.value = ``
+      lvlUp()
       callTerminal()
-
+      console.log(playBattle[playerBattle.value].exp)
       return
     }
     enemysForBattle[0].life = enL - dam
-    terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name} causando ${dam} de dano. \n${terminalBattle}`
+    terminalBattle = `${playBattle[playerBattle.value].name} atacou ${enemysForBattle[0].name}.\n${terminalBattle}`
+    terminalBattle = `${dam} de dano.\n${terminalBattle}`
     callTerminal()
     return
   }
@@ -304,7 +349,9 @@ battle.addEventListener('click', () => {
     }
 
     if ((plL - dam) <= 0) {
-      terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name} causando ${dam} de dano. ${playBattle[playerBattle.value].name} morreu. \nCure-o para voltar ao campo de batalha.\n \n${terminalBattle}`
+      terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name}.\n${terminalBattle}`
+      terminalBattle = `${dam} de dano. ${playBattle[playerBattle.value].name} morreu.\n${terminalBattle}`
+      terminalBattle = `Cure-o para voltar ao campo de batalha.\n${terminalBattle}`
       playerBattle.value = ``
       vs1vs1.value = ``
       callTerminal()
@@ -312,7 +359,8 @@ battle.addEventListener('click', () => {
     }
 
     playBattle[playerBattle.value].life = plL - dam
-    terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name} causando ${dam} de dano. \n${terminalBattle}`
+    terminalBattle = `${enemysForBattle[0].name} atacou ${playBattle[playerBattle.value].name}.\n${terminalBattle}`
+    terminalBattle = `${dam} de dano.\n${terminalBattle}`
     callTerminal()
     return
   }

@@ -90,3 +90,5 @@ const vs1vs1 = document.getElementById('vs1vs1')
 const vs1vs2 = document.getElementById('vs1vs2')
 const battle = document.getElementById('battle')
 const outMov = document.getElementById('outMov')
+
+const btSpell = document.getElementById('spell')

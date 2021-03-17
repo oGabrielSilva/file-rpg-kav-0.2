@@ -13,6 +13,7 @@ addNewPlayer.addEventListener('click', () => {
   const playerForce = Number(inPlayerForce.value)
   const playerLife = Number(inPlayerLife.value)
   const playerDefense = Number(inPlayerDefense.value)
+  const playerLVL = 1
 
 
   if (playerName == '' || playerLife == '' || playerForce == '' || playerDefense == '') {
@@ -21,8 +22,19 @@ addNewPlayer.addEventListener('click', () => {
     return
   }
 
-  players.push({ name: playerName, lifeMax: playerLife, life: playerLife, force: playerForce, defense: playerDefense })
+  players.push({
+    name: playerName,
+    lifeMax: playerLife,
+    life: playerLife,
+    force: playerForce,
+    defense: playerDefense,
+    lvl: playerLVL,
+    exp: 0,
+    expUP: 30,
+   })
+
   alert('Player add.')
+
   inPlayerName.value = ''
   inPlayerForce.value = ''
   inPlayerLife.value = ''
@@ -37,6 +49,7 @@ Life: ${players[counterI].life}
 Force: ${players[counterI].force}
 Defense: ${players[counterI].defense}
   \n`
+
   counterI++
 
   document.getElementById('players').textContent = playersAdd

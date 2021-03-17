@@ -33,7 +33,7 @@
 
 }
 
-#newEnemy, #battleMob, #battle, #selectedEnemy, #selectedPlay:hover {
+#newEnemy, #battleMob, #battle, #selectedEnemy, #selectedPlay, .btBattle:hover {
   cursor: pointer;
 }
 
