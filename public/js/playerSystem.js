@@ -16,7 +16,7 @@ addNewPlayer.addEventListener('click', () => {
 
 
   if (playerName == '' || playerLife == '' || playerForce == '' || playerDefense == '') {
-    alert('Informe os dados corretamente.')
+    alert('Enter the data correctly.')
     inPlayerName.focus()
     return
   }
@@ -45,7 +45,7 @@ Defense: ${players[counterI].defense}
 
 revisePlayer.addEventListener('click', () => {
   if (players.length === 0) {
-    alert('Não há players registrados.')
+    alert('No players registered.')
     return
   }
 
@@ -55,11 +55,11 @@ revisePlayer.addEventListener('click', () => {
     playersForRevise += `\n${players[i].name}`
   }
 
-  let playerRevise = prompt(`Escolha o player para revisão:${playersForRevise}`)
+  let playerRevise = prompt(`Choose player:${playersForRevise}`)
 
   for (var i = 0; i < players.length; i++) {
     if (playerRevise === players[i].name) {
-      let nameP = prompt('Nome:')
+      let nameP = prompt('Name:')
       let lifeP = Number(prompt('Life:'))
       let forceP = Number(prompt('Force:'))
       let defenseP = Number(prompt('Defense:'))

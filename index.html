@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="public/css/players.css">
   <link rel="stylesheet" href="public/css/battleSystem.css">
   <link rel="stylesheet" href="public/css/footer.css">
+  <link rel="stylesheet" href="public/css/help.css">
   <link rel="shortcut icon" href="public/img/favicon.svg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -22,8 +23,9 @@
 
 <body>
   <nav>
-    <input type="button" id="btTerminal" value=" Terminal " >
+    <input type="button" id="btTerminal" value="< Terminal />" >
     <input type="button" id="btInput" value=" < Input /> " >
+    <input type="button" id="btHelp" value="< Help />">
   </nav>
 
   <div id="inputTerminal">
@@ -105,7 +107,7 @@
 
       <section id="enemySystem">
         <h2>
-          Enemy System
+          Enemy system
         </h2>
         <p>
           <input type="text" id="outEnemy" placeholder="Enemy" readonly>
@@ -182,9 +184,9 @@
       <p>Gabriel Henrique da Silva</p>
       <div>
         <p>—</p>
-        <a target="_blank" href="mailto:gabriel04gh1.gh@gmail.com" alt="E-mail"><img src="public/img/email.svg" alt="E-mail" class="contato"></a>
+        <a target="_blank" href="mailto:g.h.silva.digital@gmail.com" alt="E-mail"><img src="public/img/email.svg" alt="E-mail" class="contato"></a>
         <a target="_blank" href="https://github.com/Gabriel0112001" alt="Github"><img src="public/img/github.svg" alt="Github" class="contato"></a>
-        <a target="_blank" href="https://www.instagram.com/gabriel.hsilva/?hl=pt-br" alt="Instagram"><img src="public/img/instagram.svg" alt="Instagram" class="contato"></a>
+        <a target="_blank" href="#" alt="Instagram"><img src="public/img/instagram.svg" alt="Instagram" class="contato"></a>
       </div>
       <p>Mar. 2021</p>
 
@@ -198,12 +200,91 @@
     </footer>
   </div>
 
+  <div id="help">
+    <nav>
+      <input type="button" value="X" id="X">
+    </nav>
+    <div class="containerHelp">
+      <div class="containerHelp">
+        <div>
+          <h2>< Terminal /></h2>
+          <p>
+            Terminal é um painel onde localiza-se todas as jogadas em dados e, além disso, é onde mostra todos os seres que foram chamados a partir do painel de "Enemy System". Sua proposta inicial é simples: armazenar o histórico do que vem acontecendo no jogo.
+          </p>
+        </div>
+        <div>
+          <h2>< Input /></h2>
+
+          <p>
+            Input é uma opção simples, a qual permite ao usuário adicionar jogadores e inimigos personalizados. Além de ter diversos outros botões simples, como "Add player", "Revise player", entre outros. Cada um com sua funcionalidade única.
+          </p>
+
+          <h4>&bull; Terminal</h4>
+          <p>
+            Em meio as opções do Input estão localizados dois paineis, cada um acima das funções. Sua finalidade é informar jogadores e inimigos registrados no sistema, incluindo suas informações básicas, como força, vida e ID.
+          </p>
+          <h4>&bull; Add player</h4>
+          <p>
+            Add player é um botão localizado após o primeiro formulário. O formulário do jogador. Sua funcionalidade é simples, apenas adicionar ao sistema o personagem personalizado que foi dado aos campos.
+          </p>
+          <h4>&bull; Revise player</h4>
+          <p>
+            Revise player é um botão criado com o propósito de fazer uma revisão em um dos personagens personalizados. Por exemplo, corrigir uma informação que acabou saindo errado na hora de preencher o formulário. Dá para editar todos os campos, menos a ID.
+          </p>
+          <h4>&bull; Botões de Heal</h4>
+          <p>
+            Esses botões servem para cura. São três em seu total: dois na parte de players e um na de inimigos. Ao clicar, uma opção aparecerá perguntando qual personagem deve ser curado. Para informar qual, basta digitar o nome dele (letras maiúsculas e minúsculas são importantes, então escreva da mesma forma que aparecer). Porém, dois dos botões não perguntarão quem deve ser curado, pois nesse a cura irá para todos os personagens cadastrados.
+          </p>
+        </div>
+        <div>
+          <h2>Dice system</h2>
+          <p>
+            Essa é a primeira seção do site, a primeira parte. Ela é extremamente simples e intuitiva. Formada por apenas um painel onde revela o valor do dado que foi 'rolado'. Abaixo os botões com seus valores. Lembrando que D100, por exemplo, é uma abreviação de Dado 100, ou dado de 100 lados. Além dos mais clássicos, temos uma moeda que resulda em heads ou tails (cara ou coroa).
+          </p>
+        </div>
+        <div>
+          <h2>Enemy system</h2>
+          <p>
+            É nessa seção que acontece uma das principais funções do RPG, pois é aqui que se geram os inimigos aleatórios. Para isso, basta selecionar uma das localidades, porém, saiba que estão em ordem de dificuldade. Os mobs da floresta são os mais básicos e os da dungeon são os mais fortes e completos.
+          </p>
+          <p>
+            Ao selecionar a região, basta clicar em 'Call new enemy' que um mob daquela região será chamado. Os status dele aparecerão nos paineis acima e nas opções do Terminal. Se clicar em 'Battle with him', o jogador será direcionado para a seção de batalha.
+          </p>
+        </div>
+        <div>
+          <h2>Player system</h2>
+          <p>
+            Essa seção serve para exiir todos os jogadores que estão registrados no sistema. Inicialmente, ela estará vazia, pois não há jogadores registrados. Para isso, basta clicar em 'Input', opção que encontra-se no topo da tela, ao lado de 'Terminal'. Ao abrir o painel, basta cadastrar quantos jogadores forem necessários.
+          </p>
+        </div>
+        <div>
+          <h2>Battle call system</h2>
+          <p>
+            Essa seção pode ser um pouco mais complexa inicialmente. Ela apresenta dois campos de números e botões de 'send'. Os campos servem para as IDs dos personagens cadastrados. Normalmente, o primeiro protagonista cadastrado tem a ID 0.
+          </p>
+          <p>
+            Basta, então, digitar esse valor no campo e clicar em send que o player será enviado para o campo de batalha. A ID do inimigo não precisa ser colocada a não ser que o combate ocorra contra um mob personalizado, onde também é gerado uma ID para cada.
+          </p>
+        </div>
+        <div>
+          <h2>Battle system</h2>
+          <p>
+            É aqui onde ocorre a pancadaria. O contêiner de cor escura é um terminal separado, onde irá informar o que ocorreu após o clique na opção de batalha, quando um player ataca um mob ou vice-versa.
+          </p>
+          <p>O nome de cada personagem será apresentado no campo branco acima. Battle system é a seção mais simples, não possui segredos aqui e é bem intuitivo.</p>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </div>
+
   <script src="public/js/master.js"></script>
   <script src="public/js/dice.js"></script>
   <script src="public/js/enemySpawn.js"></script>
   <script src="public/js/createNewEnemy.js"></script>
   <script src="public/js/playerSystem.js"></script>
   <script src="public/js/battleSystem.js"></script>
+  <script src="public/js/help.js"></script>
 </body>
 
 </html>

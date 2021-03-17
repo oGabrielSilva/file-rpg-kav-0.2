@@ -45,9 +45,9 @@ coin.addEventListener('click', () => {
   let newCoin = Math.ceil(Math.random() * 2)
 
   if (newCoin === 1) {
-    newCoin = 'Coroa'
+    newCoin = 'Heads'
   } else {
-    newCoin = 'Cara'
+    newCoin = 'Tails'
   }
 
   terminalSpawn += `Coin: ${newCoin}\n`

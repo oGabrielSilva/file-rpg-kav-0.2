@@ -10,7 +10,7 @@ function checkForest() {
 //------------------------------------
   switch (enemyCounterForest) {
     case 13:
-      pos = confirm('A floresta está cada vez mais densa. Continuar?')
+      pos = confirm('The forest is getting denser and denser. Shall we continue?')
       if (!pos) {
         enemyCounterForest = 1
         return
@@ -18,7 +18,7 @@ function checkForest() {
       enemyCounterForest++
       break;
     case 24:
-      pos = confirm('Pouca Luz solar consegue adentrar as densas folhas das enormes árvores. Adentrar?')
+      pos = confirm('Little sunlight can penetrate the dense leaves of the huge trees. Get in?')
       if (!pos) {
         enemyCounterForest = 14
         return
@@ -32,7 +32,7 @@ function checkForest() {
 
   }
 //------------------------------------
-  console.log(enemyCounterForest, enemyLvl)
+
   let enemyType = enemysForest[enemyLvl].enemy
   let enemyLife = (6 * enemysForest[enemyLvl].lvl) + enemyLvl
   let enemyF = (2 * enemysForest[enemyLvl].lvl + Math.ceil(Math.random() * 5  + (enemyLvl / 8)))
@@ -54,7 +54,7 @@ function checkCave() {
 //------------------------------------
   switch (enemyCounterCave) {
     case 17:
-      pos = confirm('Menos Luz adentra os locais a frente. Continuar?')
+      pos = confirm('Less Light enters the places ahead. Continue?')
       if (!pos) {
         enemyCounterCave = 1
         return
@@ -62,7 +62,7 @@ function checkCave() {
       enemyCounterCave++
       break;
     case 35:
-      pos = confirm('É difícil não ouvir barulhos vindos das densas sombras. Seguir em frente?')
+      pos = confirm(`It's hard not to hear noises coming from the dense shadows. Get in?`)
       if (!pos) {
         enemyCounterCave = 18
         return
@@ -76,7 +76,7 @@ function checkCave() {
   }
 
   //------------------------------------
-  console.log(enemyCounterCave, enemyLvl)
+
   let enemyType = enemysCave[enemyLvl].enemy
   let enemyLife = (8 * enemysCave[enemyLvl].lvl) + enemyLvl
   let enemyF = (3 * enemysCave[enemyLvl].lvl + Math.ceil(Math.random() * 5  + (enemyLvl / 8)))
@@ -132,7 +132,7 @@ function checkDungeon() {
   }
 
   //------------------------------------
-  console.log(enemyCounterDungeon, enemyLvl)
+
   let enemyType = enemysDungeon[enemyLvl].enemy
   let enemyLife = (13 * enemysDungeon[enemyLvl].lvl) + enemyLvl
   let enemyF = (4 * enemysDungeon[enemyLvl].lvl + Math.ceil(Math.random() * 7  + (enemyLvl / 5)))
@@ -178,6 +178,6 @@ btNewEnemy.addEventListener('click', () => {
   }
 
   check0.focus()
-  alert('Nenhum habitat selecionado.')
+  alert('No place selected.')
 
 })
